@@ -1,9 +1,9 @@
-// router/index.js
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../src/views/Accueil'
-
-Vue.use(VueRouter)
+import { createRouter, createWebHistory } from 'vue-router'
+import Home from '../src/views/PageAccueil'
+import Personnages from '../src/views/PagePersonnages'
+import Sorts from '../src/views/PageSorts'
+import Livres from '../src/views/PageLivres'
+import Potions from '../src/views/PagePotions'
 
 const routes = [
   {
@@ -11,10 +11,30 @@ const routes = [
     name: 'Accueil',
     component: Home
   },
-  // ajoutez d'autres routes ici
+  {
+    path:'/Personnages',
+    name: 'Personnages',
+    component: Personnages
+  },
+  {
+    path:'/Sorts',
+    name: 'Sorts',
+    component: Sorts
+  },
+  {
+    path:'/Livres',
+    name: 'Livres',
+    component: Livres
+  },
+  {
+    path:'/Potions',
+    name: 'Potions',
+    component: Potions
+  }
 ]
 
-const router = new VueRouter({
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
   routes
 })
 
